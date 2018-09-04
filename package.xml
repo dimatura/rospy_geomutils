@@ -12,6 +12,8 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>rospy</depend>
+  <depend>tf</depend>
+  <depend>tf2</depend>
   <depend>geometry_msgs</depend>
 
   <export>
