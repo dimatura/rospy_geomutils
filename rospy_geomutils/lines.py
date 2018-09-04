@@ -37,7 +37,6 @@ def endpoints_to_abc(xs, ys):
     a /= norm
     b /= norm
     c /= norm
-    #return {'a':a, 'b':b, 'c':c}
     return a, b, c
 
 

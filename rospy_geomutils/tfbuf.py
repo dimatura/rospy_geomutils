@@ -17,8 +17,9 @@ def get_pinhole_camera_model(bag_fname, infotopic):
 
 
 def get_tfbuf(bag, duration=8000000):
+    """ given a bag, load all the transforms into a tf buffer. """
     tfbuf = tf2_ros.BufferCore(rospy.Duration(duration))
-    for topic,msg,ts in bag.read_messages('/tf'):
+    for topic, msg, ts in bag.read_messages('/tf'):
         for tfi in msg.transforms:
             tfbuf.set_transform(copy.deepcopy(tfi), 'default')
     return tfbuf
@@ -28,7 +29,7 @@ def get_tfbuf_bagfiles(bag_fnames, duration=8000000):
     tfbuf = tf2_ros.BufferCore(rospy.Duration(duration))
     for bag_fname in bag_fnames:
         with rosbag.Bag(bag_fname, 'r') as bag:
-            for topic,msg,ts in bag.read_messages('/tf'):
+            for topic, msg, ts in bag.read_messages('/tf'):
                 for tfi in msg.transforms:
                     tfbuf.set_transform(copy.deepcopy(tfi), 'default')
     return tfbuf

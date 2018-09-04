@@ -8,15 +8,13 @@
 # @=
 
 import numpy as np
-from tf import transformations as tftf
+# from tf import transformations as tftf
 
 from .quaternion import Quaternion
 
 from geometry_msgs.msg import Pose as PoseMsg
 from geometry_msgs.msg import Transform as TransformMsg
 
-# from geometry_msgs.msg import Point as PointMsg
-# from geometry_msgs.msg import Vector3 as Vector3Msg
 
 class RigidTransform(object):
     def __init__(self, rotation_quat=None, translation_vec=None):

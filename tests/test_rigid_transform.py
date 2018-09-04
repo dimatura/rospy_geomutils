@@ -1,11 +1,9 @@
-import math
 import random
 import numpy as np
 
 from rospy_geomutils import Quaternion
 from rospy_geomutils import RigidTransform
 
-import pytest
 
 """
 q = Quaternion([1, 0, 0, 0])
@@ -31,16 +29,20 @@ print m4
 
 random.seed(28)
 
+
 def make_random_transform():
     q = Quaternion.make_random()
-    translation = [random.uniform(-100, 100), random.uniform(-100, 100), random.uniform(-100, 100)]
+    translation = [random.uniform(-100, 100),
+                   random.uniform(-100, 100),
+                   random.uniform(-100, 100)]
     return RigidTransform(q, translation)
 
+
 def test_inverse():
-    #print("Testing inverse")
     identity = np.identity(4)
     for _ in range(100):
-        # generate a bunch of random rigid body transforms, then compose them and apply their inverses
+        # generate a bunch of random rigid body transforms, then compose them
+        # and apply their inverses
         # the result should be the identity transform
         num_transforms = random.randint(0, 10)
         ms = [make_random_transform() for _ in range(num_transforms)]
@@ -53,8 +55,8 @@ def test_inverse():
         sse = np.dot(errs, errs)
         assert(np.isclose(sse, 0.))
 
+
 def test_composition():
-    #print "Testing composition"
     t = RigidTransform.identity()
     m = np.identity(4)
     for _ in range(1000):

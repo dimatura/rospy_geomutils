@@ -64,7 +64,7 @@ class Quaternion(object):
 
     def __repr__(self):
         return ('Quaternion(x=%f, y=%f, z=%f, w=%f)' %
-               (self.q[0], self.q[1], self.q[2], self.q[3]))
+                (self.q[0], self.q[1], self.q[2], self.q[3]))
 
     def inverse(self):
         return Quaternion(-self.q[0], -self.q[1], -self.q[2], self.q[3])
@@ -72,7 +72,8 @@ class Quaternion(object):
     @staticmethod
     def from_roll_pitch_yaw(roll, pitch, yaw):
         # note: convention differs from older from_roll_pitch_yaw,
-        # but this is what ROS seems to prefer (e.g. when using static_transform_publisher).
+        # but this is what ROS seems to prefer (e.g. when using
+        # static_transform_publisher).
         # sxyz is 'static frame x-y-z'
         return Quaternion(tftf.quaternion_from_euler(roll, pitch, yaw, 'sxyz'))
 
@@ -106,7 +107,7 @@ class Quaternion(object):
         return tftf.quaternion_matrix(self.to_xyzw())
 
     def to_array33(self):
-        return tftf.quaternion_matrix(self.to_xyzw())[:3,:3]
+        return tftf.quaternion_matrix(self.to_xyzw())[:3, :3]
 
     @staticmethod
     def from_array33(R, isprecise=False):
