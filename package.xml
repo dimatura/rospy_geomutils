@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>rospy_geomutils</name>
+  <version>0.0.0</version>
+  <description>The rospy_geomutils package</description>
+
+  <maintainer email="dimatura@cmu.edu">Daniel Maturana</maintainer>
+
+  <license>BSD</license>
+
+  <author email="dimatura@cmu.edu">Daniel Maturana</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>geometry_msgs</depend>
+
+  <export>
+  </export>
+</package>
